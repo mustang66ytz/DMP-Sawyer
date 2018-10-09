@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(dmp)
+project(dmp_sawyer)
 
 if(NOT CMAKE_CONFIGURATION_TYPES AND NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
@@ -42,6 +42,6 @@ include_directories(
   ${Eigen_INCLUDE_DIRS}
 )
 
-add_library(dmp src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp src/linear_approx.cpp)
-add_executable(dmp_server nodes/dmp_server.cpp)
-target_link_libraries(dmp_server dmp ${catkin_LIBRARIES} ${Eigen_LIBRARIES})
+add_library(dmp_sawyer src/dmp.cpp src/fourier_approx.cpp src/radial_approx.cpp src/linear_approx.cpp)
+add_executable(dmp_sawyer_server nodes/dmp_server.cpp)
+target_link_libraries(dmp_sawyer_server dmp_sawyer ${catkin_LIBRARIES} ${Eigen_LIBRARIES})

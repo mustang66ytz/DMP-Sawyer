@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>dmp</name>
+  <name>dmp_sawyer</name>
   <version>0.0.0</version>
   <description>Implements Dynamic Movement Primitives in a robot agnostic way</description>
 
