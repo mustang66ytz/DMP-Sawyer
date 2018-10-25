@@ -95,7 +95,7 @@ def moveTheRobot(arm, plan):
         jointPos = dict(zip(nameList, jointList))
         jointPosList.append(jointPos)
     # move the arm follow the generated trajectory
-    arm.basicTrajMove(jointPosList, 0.2, len(jointPosList), 50)
+    arm.basicTrajMove(jointPosList, 0.2, len(jointPosList), 80)
         #arm.basicPositionMove(jointPos, 0.2)
 
 if __name__ == '__main__':
@@ -107,11 +107,11 @@ if __name__ == '__main__':
         dt = 0.5 # incremental time
         K = 100 # proportional gain
         D = 2.0 * np.sqrt(K) # derivative gain
-        num_bases = 10 # number of gaussian primitives
+        num_bases = 20 # number of gaussian primitives
         inputJoints = [] # store the input training data
 
         # read training data from file
-        with open("listOfJoints.txt", "r") as dataRecorded:
+        with open("listOfJoints1.txt", "r") as dataRecorded:
             for line in range(10):
                 temp = []
                 data = eval(dataRecorded.readline())
@@ -119,7 +119,7 @@ if __name__ == '__main__':
                     temp.append(item)
                 print(temp)
                 inputJoints.append(temp)
-        print(type(inputJoints[0][0]))
+
         dataRecorded.close()
 
         resp = makeLFDRequest(dims, inputJoints, dt, K, D, num_bases)
@@ -127,11 +127,13 @@ if __name__ == '__main__':
 
         goal_thresh = [0.2,0.2, 0.2, 0.1, 0.1, 0.1, 0.1]
         seg_length = -1          #Plan until convergence to goal
-        tau = 8 * resp.tau       #Desired plan should take 8 times as long as demo
+        tau = 18 * resp.tau       #Desired plan should take 8 times as long as demo
         dt = 0.2
         integrate_iter = 5       #dt is rather large, so this is > 1  
-        joints_0 = [1.53034765625, -0.50905859375, -0.5331240234375, 1.3915283203125, 0.6559541015625, 0.776837890625, -0.5849541015625]
-        joints_end = [1.70819921875, -0.4184794921875, -0.717544921875, 1.12599609375, 0.3260283203125, 1.115013671875, -0.32761328125]
+        #joints_0 = [1.7750703125, -0.4319609375, -0.8911376953125, 1.5901337890625, 0.8923017578125, 0.3399443359375, 0.0406318359375]
+        #joints_end = [1.6577998046875, -0.286306640625, -0.954734375, 1.3618857421875, 0.9406533203125, 0.7698525390625, 0.0404248046875]
+        joints_0 = [2.1301376953125, -0.3836904296875, -0.9699033203125, 1.8179384765625, 0.98302734375, 0.0798271484375, 0.0437431640625]
+        joints_end = [1.901609375, -0.2622255859375, -1.037994140625, 1.5365166015625, 1.1672919921875, 0.8511787109375, -0.169119140625]
         joints_dot_0 = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]   
         t_0 = 0                
 

@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "",
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "includePath": [
+                "/home/kuangyuan/ros_ws/devel/include",
+                "/opt/ros/kinetic/include",
+                "/home/kuangyuan/ros_ws/src/dmp/include",
+                "/home/kuangyuan/ros_ws/src/dmp_sawyer/include",
+                "/home/kuangyuan/ros_ws/src/iai_kinect2/kinect2_bridge/include",
+                "/home/kuangyuan/ros_ws/src/iai_kinect2/kinect2_calibration/include",
+                "/home/kuangyuan/ros_ws/src/iai_kinect2/kinect2_registration/include",
+                "/home/kuangyuan/ros_ws/src/moveit_test/include",
+                "/home/kuangyuan/ros_ws/src/my_sawyer_control/include",
+                "/home/kuangyuan/ros_ws/src/sawyer_simulator/sawyer_gazebo/include",
+                "/home/kuangyuan/ros_ws/src/sawyer_simulator/sawyer_hardware_interface/include",
+                "/home/kuangyuan/ros_ws/src/sawyer_simulator/sawyer_sim_controllers/include",
+                "/home/kuangyuan/ros_ws/src/test1/include",
+                "/usr/include"
+            ],
+            "name": "Linux",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}

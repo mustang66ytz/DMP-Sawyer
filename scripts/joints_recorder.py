@@ -25,16 +25,17 @@ class recorder(object):
     def __init__(self):
         self.listOfJoints = []
         self.counter = 0
-        self.recordedData = open("listOfJoints.txt", 'w')
+        self.recordedData = open("listOfJoints1.txt", 'w')
 
     def callback(self, data):
         # update the counter
         self.counter += 1
         
-        if self.counter%100==0:
+        if self.counter%50==0:
             rospy.logerr("recorded")
             self.listOfJoints.append(data.position[1:8])
             self.recordedData.write(str(data.position[1:8]))
+            self.recordedData.write("\n")
             print(self.listOfJoints)
         rospy.loginfo("skipped")
 
